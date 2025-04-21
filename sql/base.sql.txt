@@ -1,0 +1,60 @@
+-- Création de la base
+CREATE DATABASE IF NOT EXISTS gestion_absence;
+USE gestion_absence;
+
+-- Table des filières
+CREATE TABLE filieres (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL UNIQUE,
+    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table des étudiants
+CREATE TABLE etudiants (
+    num_apoge INT PRIMARY KEY,
+    nom VARCHAR(50),
+    prenom VARCHAR(50),
+    mot_de_passe VARCHAR(255),
+    email VARCHAR(200) CHECK (email LIKE '%uca.ac.ma'),
+    filiere_id INT,
+    FOREIGN KEY (filiere_id) REFERENCES filieres(id)
+);
+
+-- Table des admins
+CREATE TABLE admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(60) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    email VARCHAR(200) CHECK (email LIKE '%uca.ac.ma'),
+    mot_de_passe VARCHAR(255)
+);
+
+-- Table des semestres
+CREATE TABLE semestres (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(20) NOT NULL,
+    filiere_id INT,
+    FOREIGN KEY (filiere_id) REFERENCES filieres(id)
+);
+
+-- Table des modules
+CREATE TABLE modules (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    semestre_id INT,
+    responsable_id INT,
+    FOREIGN KEY (semestre_id) REFERENCES semestres(id),
+    FOREIGN KEY (responsable_id) REFERENCES admins(id)
+);
+
+-- Table des séances
+CREATE TABLE seances (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    module_id INT,
+    date_seance DATE,
+    heure_depart TIME,
+    heure_fin TIME,
+    salle VARCHAR(10),
+    type_de_seance VARCHAR(20),
+    FOREIGN KEY (module_id) REFERENCES modules(id)
+);
