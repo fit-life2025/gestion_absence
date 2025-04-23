@@ -106,7 +106,7 @@
   }
   
   th {
-    background-color: #4a90e2;
+    background-color: #92400e;
     color: white;
     text-transform: uppercase;
   }
@@ -155,7 +155,7 @@
 
 .jus h1 {
   font-size: 26px;
-  color: #0D92F4;
+  color: #92400e;
   font-weight: bold;
 }
 
@@ -188,7 +188,7 @@ select, textarea {
 
 select:focus,
 textarea:focus {
-  border-color: #0D92F4;
+  border-color: #92400e;
   outline: none;
 }
 
@@ -244,7 +244,7 @@ textarea {
 
 .content i {
   font-size: 38px;
-  color: #0D92F4;
+  color: #92400e;
 }
 
 .content p {
@@ -257,7 +257,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #0D92F4;
+  background-color: #92400e;
   color: white;
   width: 100%;
   padding: 10px 15px;
@@ -284,7 +284,7 @@ textarea {
 }
 
 button {
-  background-color: #0D92F4;
+  background-color: #92400e;
   color: white;
   border: none;
   border-radius: 8px;
@@ -298,5 +298,16 @@ button {
 }
 
 button:hover {
-  background-color: #0b7cd3;
+  background-color: #92400e;
+}
+.menu{
+  width: 50%;
+  height: 70%;
+  background-color: #6b2e07;
+}
+.menu .cercle{
+  width: 50%;
+  height: 50%;
+  background-color: #7a380f;
+
 }
